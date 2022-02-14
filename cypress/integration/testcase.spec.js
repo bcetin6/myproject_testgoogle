@@ -10,7 +10,7 @@
 describe('Checking UI', ()=>{
 
     it('Check GOOGLE icon', () =>{
-        cy.get('.lnXdpd').should('be.visible');
+        cy.get('.lnXdpd').should('be.visible'); //normal icon varken tekrar bak
     });
 
     describe('Checking search bar elements', ()=>{
@@ -35,13 +35,14 @@ describe('Checking UI', ()=>{
             cy.visit('https://www.google.com.tr/'); //bunu sonradan sil
             cy.get('.FPdoLc > center > .gNO89b').should('be.visible').contains("Google'da Ara");
             cy.get('.gLFyf').click().type('huawei');
+            cy.get('[jsmodel=" vWNDde "]').click(); //disarida bir yere tikladim, covered problemi ortadan kalkmasi icin
             cy.get('.FPdoLc > center > .gNO89b').click();
             cy.go('back'); 
 
             
         })
         it('Check the button kendimi sansli hissediyorum', () => {
-            cy.visit('https://www.google.com.tr/'); //bunu sonradan sil
+            //         cy.visit('https://www.google.com.tr/'); //bunu sonradan sil
             cy.get('.FPdoLc > center > .RNmpXc').contains('Kendimi Şanslı Hissediyorum').click();
             cy.go('back');
         
