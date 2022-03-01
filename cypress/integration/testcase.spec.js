@@ -1,21 +1,23 @@
-//import { testPage } from "../pageobject/test-page";
+import testPage from "../integration/pageObjects/testPage";
 
 //const testPage = new testPage()
 
 
     it('Visit the URL', () => {
-        cy.visit('https://www.google.com.tr/');
+        cy.visit('https://www.google.com/');
     });
 
 describe('Checking UI', ()=>{
 
-    it('Check GOOGLE icon', () =>{
-        cy.get('.lnXdpd').should('be.visible'); //normal icon varken tekrar bak
+    
+    it.only('Check GOOGLE icon', () =>{
+        cy.visit('https://www.google.com/');
+        testPage.googleIcon 
     });
 
     describe('Checking search bar elements', ()=>{
         it('Check the search icon', () => {
-            cy.get('.QCzoEc > svg').should('be.visible');
+            testPage.searchIcon
         })
         it('Check the search by voice icon', ()=>{
             cy.get('.goxjub').should('be.visible');
